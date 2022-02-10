@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ControlaJogador : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward);
+        float eixoX = Input.GetAxis("Horizontal");
+        float eixoZ = Input.GetAxis("Vertical");
+
+        Vector3 direcao = new Vector3(eixoX, 0, eixoZ);
+
+        transform.Translate(direcao);
     }
 }
