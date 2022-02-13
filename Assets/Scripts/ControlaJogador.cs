@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControlaJogador : MonoBehaviour
 {
-    public float Velocidade = 10;
+    public float velocidade = 10;
     Vector3 direcao;
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class ControlaJogador : MonoBehaviour
         Rigidbody rigidbodi = GetComponent<Rigidbody>();
         rigidbodi.MovePosition(
             rigidbodi.position +
-            (direcao * Velocidade * Time.deltaTime)
+            (direcao * velocidade * Time.deltaTime)
             );
     }
 }
