@@ -21,12 +21,16 @@ public class ControlaInimigo : MonoBehaviour
         float distancia = Vector3.Distance(transform.position, Jogador.transform.position);
 
         if (distancia < 2.5) return;
-        Vector3 direcao = Jogador.transform.position - transform.position;
         Rigidbody rigidbodi = GetComponent<Rigidbody>();
+        Vector3 direcao = Jogador.transform.position - transform.position;
+        
         rigidbodi.MovePosition(
             rigidbodi.position +
             (direcao.normalized * velocidade * Time.deltaTime)
             );
+
+        Quaternion novaRotacao = Quaternion.LookRotation(direcao);
+        rigidbodi.MoveRotation(novaRotacao);
 
     }
 }
