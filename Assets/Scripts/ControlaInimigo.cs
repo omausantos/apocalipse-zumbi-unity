@@ -18,6 +18,9 @@ public class ControlaInimigo : MonoBehaviour
     void Update()
     {
 
+        float distancia = Vector3.Distance(transform.position, Jogador.transform.position);
+
+        if (distancia < 2.5) return;
         Vector3 direcao = Jogador.transform.position - transform.position;
         Rigidbody rigidbodi = GetComponent<Rigidbody>();
         rigidbodi.MovePosition(
