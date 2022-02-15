@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3555726109644916146}
   - component: {fileID: 7215197830344770368}
   - component: {fileID: 2243950399646187708}
+  - component: {fileID: 2521077323438730797}
+  - component: {fileID: 1525728963160325889}
   m_Layer: 0
   m_Name: Bala
   m_TagString: Untagged
@@ -95,3 +97,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2521077323438730797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544157460341730467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6fb8eef521843e48c5fda32c9e228a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidade: 30
+--- !u!54 &1525728963160325889
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544157460341730467}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
