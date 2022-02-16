@@ -648,6 +648,10 @@ PrefabInstance:
       propertyPath: CanoDaArma
       value: 
       objectReference: {fileID: 675095380}
+    - target: {fileID: 7008307582954169661, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: mascaraChao.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
 --- !u!1001 &1755551025
@@ -900,6 +904,10 @@ PrefabInstance:
     - target: {fileID: 7124822860324074303, guid: 63ec8cef99274448bb57e9a11df4f8bd, type: 3}
       propertyPath: m_Name
       value: Hotel_Estacionamento_Destruido
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124822860324074303, guid: 63ec8cef99274448bb57e9a11df4f8bd, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7124822860324237087, guid: 63ec8cef99274448bb57e9a11df4f8bd, type: 3}
       propertyPath: m_RootOrder
