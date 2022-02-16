@@ -34,16 +34,16 @@ public class ControlaInimigo : MonoBehaviour
                     (direcao.normalized * velocidade * Time.deltaTime)
                 );
             animacao.SetBool("Atacando", false);
-        } else
+        }
+        else
         {
             animacao.SetBool("Atacando", true);
         }
-        
-        
-        
-        
 
-        
+    }
 
+    void AtacaJogador()
+    {
+        Time.timeScale = 0;
     }
 }
