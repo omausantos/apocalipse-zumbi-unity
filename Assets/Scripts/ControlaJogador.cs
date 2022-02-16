@@ -7,6 +7,7 @@ public class ControlaJogador : MonoBehaviour
     public float velocidade = 10;
     Vector3 direcao;
     public LayerMask mascaraChao;
+    public GameObject TextoGameOver;
 
     // Update is called once per frame
     void Update()
