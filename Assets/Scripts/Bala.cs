@@ -18,4 +18,13 @@ public class Bala : MonoBehaviour
             );
 
     }
+
+    void OnTriggerEnter(Collider objetoDeColisao)
+    {
+        if(objetoDeColisao.tag == "Inimigo")
+        {
+            Destroy(objetoDeColisao.gameObject);
+        }
+        Destroy(gameObject);
+    }
 }
