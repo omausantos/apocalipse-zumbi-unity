@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControlaJogador : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class ControlaJogador : MonoBehaviour
     Vector3 direcao;
     public LayerMask mascaraChao;
     public GameObject TextoGameOver;
+    public bool Vivo = true;
+
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,6 +26,15 @@ public class ControlaJogador : MonoBehaviour
         direcao = new Vector3(eixoX, 0, eixoZ);
 
         GetComponent<Animator>().SetBool("Movendo", (direcao != Vector3.zero));
+
+        if (Vivo == false)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                SceneManager.LoadScene("game");
+                TextoGameOver.SetActive(false);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -42,5 +59,6 @@ public class ControlaJogador : MonoBehaviour
 
             rigidbody.MoveRotation(novaRotacao);
         }
+        
     }
 }

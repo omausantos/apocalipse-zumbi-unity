@@ -44,7 +44,9 @@ public class ControlaInimigo : MonoBehaviour
 
     void AtacaJogador()
     {
+        ControlaJogador controlador = Jogador.GetComponent<ControlaJogador>();
         Time.timeScale = 0;
-        Jogador.GetComponent<ControlaJogador>().TextoGameOver.SetActive(true);
+        controlador.TextoGameOver.SetActive(true);
+        controlador.Vivo = false;
     }
 }
