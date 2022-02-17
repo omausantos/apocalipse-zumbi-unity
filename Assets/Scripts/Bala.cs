@@ -5,13 +5,18 @@ using UnityEngine;
 public class Bala : MonoBehaviour
 {
     public float velocidade = 20;
+    private Rigidbody rigidbodyBala;
+
+    private void Start()
+    {
+        rigidbodyBala = GetComponent<Rigidbody>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Rigidbody rigidbodi = GetComponent<Rigidbody>();
-        rigidbodi.MovePosition(
-            rigidbodi.position +
+        rigidbodyBala.MovePosition(
+            rigidbodyBala.position +
             transform.forward *
             velocidade *
             Time.deltaTime

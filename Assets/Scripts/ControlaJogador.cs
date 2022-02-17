@@ -6,15 +6,19 @@ using UnityEngine.SceneManagement;
 public class ControlaJogador : MonoBehaviour
 {
     public float velocidade = 10;
-    Vector3 direcao;
+    private Vector3 direcao;
     public LayerMask mascaraChao;
     public GameObject TextoGameOver;
     public bool Vivo = true;
+    private Rigidbody rigidbodyJogador;
+    private Animator animatorJogador;
 
 
     private void Start()
     {
         Time.timeScale = 1;
+        rigidbodyJogador = GetComponent<Rigidbody>();
+        animatorJogador = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,7 +29,7 @@ public class ControlaJogador : MonoBehaviour
 
         direcao = new Vector3(eixoX, 0, eixoZ);
 
-        GetComponent<Animator>().SetBool("Movendo", (direcao != Vector3.zero));
+        animatorJogador.SetBool("Movendo", (direcao != Vector3.zero));
 
         if (Vivo == false)
         {
@@ -39,9 +43,8 @@ public class ControlaJogador : MonoBehaviour
 
     void FixedUpdate()
     {
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        rigidbody.MovePosition(
-            rigidbody.position +
+        rigidbodyJogador.MovePosition(
+            rigidbodyJogador.position +
             (direcao * velocidade * Time.deltaTime)
             );
 
@@ -57,7 +60,7 @@ public class ControlaJogador : MonoBehaviour
 
             Quaternion novaRotacao = Quaternion.LookRotation(posicaoMiraJogador);
 
-            rigidbody.MoveRotation(novaRotacao);
+            rigidbodyJogador.MoveRotation(novaRotacao);
         }
         
     }
