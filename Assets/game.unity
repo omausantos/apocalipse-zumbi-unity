@@ -4580,6 +4580,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 675095380}
     - target: {fileID: 7008307582954169661, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: Vida
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008307582954169661, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: textGameOver
       value: 
       objectReference: {fileID: 2110368880}
