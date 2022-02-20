@@ -12,6 +12,7 @@ public class ControlaJogador : MonoBehaviour
     private Rigidbody rigidbodyJogador;
     private Animator animatorJogador;
     public int Vida = 100;
+    public ControlaSlider ScriptControlaJogador;
 
 
     private void Start()
@@ -68,6 +69,7 @@ public class ControlaJogador : MonoBehaviour
     public void TomarDano(int dano)
     {
         Vida -= dano;
+        ScriptControlaJogador.AtualizarSliderVidaJogador();
         if(estaMorto())
         {
             Time.timeScale = 0;
