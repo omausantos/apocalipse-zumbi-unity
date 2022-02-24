@@ -4917,6 +4917,10 @@ PrefabInstance:
       value: 4.77
       objectReference: {fileID: 0}
     - target: {fileID: 3150786151902276137, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: SomDoTiro
+      value: 
+      objectReference: {fileID: 8300000, guid: 40a78bbecdff244f58cefa6a13ee537e, type: 3}
+    - target: {fileID: 3150786151902276137, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: CanoDaArma
       value: 
       objectReference: {fileID: 675095380}
@@ -4924,6 +4928,10 @@ PrefabInstance:
       propertyPath: Vida
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7008307582954169661, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: SomDeDano
+      value: 
+      objectReference: {fileID: 8300000, guid: 294c80d48ba644f10b62cbba9f17536c, type: 3}
     - target: {fileID: 7008307582954169661, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: textGameOver
       value: 
