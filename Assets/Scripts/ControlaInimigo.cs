@@ -7,18 +7,16 @@ public class ControlaInimigo : MonoBehaviour
 
     public GameObject Jogador;
     private float velocidade = 5;
-    private Rigidbody rigidbodyJogador;
-    private Animator animatorJogador;
     private MovimentaPersonagem movimenta;
+    private AnimacaoPersonagem animacao;
 
     // Start is called before the first frame update
     void Start()
     {
         Jogador = GameObject.FindWithTag("Jogador");
-        int selecionaTipoZumbi = Random.Range(1, 28);
-        transform.GetChild(selecionaTipoZumbi).gameObject.SetActive(true);
-        animatorJogador = GetComponent<Animator>();
+        RandomZumbi();
         movimenta = GetComponent<MovimentaPersonagem>();
+        animacao = GetComponent<AnimacaoPersonagem>();
     }
 
     // Update is called once per frame
@@ -34,11 +32,11 @@ public class ControlaInimigo : MonoBehaviour
         if (distancia > 2.5)
         {
             movimenta.Movimenta(direcao, velocidade);
-            animatorJogador.SetBool("Atacando", false);
+            animacao.Atacar(false);
         }
         else
         {
-            animatorJogador.SetBool("Atacando", true);
+            animacao.Atacar(true);
         }
 
     }
@@ -47,5 +45,10 @@ public class ControlaInimigo : MonoBehaviour
     {
         int dano = Random.Range(20, 31);
         Jogador.GetComponent<ControlaJogador>().TomarDano(dano);
+    }
+
+    private void RandomZumbi(){
+        int selecionaTipoZumbi = Random.Range(1, 28);
+        transform.GetChild(selecionaTipoZumbi).gameObject.SetActive(true);
     }
 }
