@@ -12,18 +12,12 @@ public class ControlaSlider : MonoBehaviour
     void Start()
     {
         scriptControlaJogador = GameObject.FindWithTag("Jogador").GetComponent<ControlaJogador>();
-        SliderVidaJogador.maxValue = scriptControlaJogador.Vida;
+        SliderVidaJogador.maxValue = scriptControlaJogador.StatusJogador.Vida;
         AtualizarSliderVidaJogador();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void AtualizarSliderVidaJogador()
     {
-        SliderVidaJogador.value = scriptControlaJogador.Vida;
+        SliderVidaJogador.value = scriptControlaJogador.StatusJogador.Vida;
     }
 }

@@ -6,11 +6,19 @@ public class AnimacaoPersonagem : MonoBehaviour
 {
     private Animator myAnimator;
 
-    private void Awake() {
+    private void Awake()
+    {
         myAnimator = GetComponent<Animator>();
     }
-    
-    public void Atacar(bool estado){
+
+    public void Atacar(bool estado)
+    {
         myAnimator.SetBool("Atacando", estado);
     }
+
+    public void AnimarMovimento(Vector3 direcao)
+    {
+        myAnimator.SetFloat("Movendo", direcao.magnitude);
+    }
+
 }

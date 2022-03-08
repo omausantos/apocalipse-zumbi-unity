@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlaInimigo : MonoBehaviour
+public class ControlaInimigo : MonoBehaviour, IMatavel
 {
 
     public GameObject Jogador;
-    private float velocidade = 5;
     private MovimentaPersonagem movimenta;
     private AnimacaoPersonagem animacao;
+    private Status statusInimigo;
+    public AudioClip SomDeMorte;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class ControlaInimigo : MonoBehaviour
         RandomZumbi();
         movimenta = GetComponent<MovimentaPersonagem>();
         animacao = GetComponent<AnimacaoPersonagem>();
+        statusInimigo = GetComponent<Status>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class ControlaInimigo : MonoBehaviour
 
         if (distancia > 2.5)
         {
-            movimenta.Movimenta(direcao, velocidade);
+            movimenta.Movimenta(direcao, statusInimigo.velocidade);
             animacao.Atacar(false);
         }
         else
@@ -47,8 +49,24 @@ public class ControlaInimigo : MonoBehaviour
         Jogador.GetComponent<ControlaJogador>().TomarDano(dano);
     }
 
-    private void RandomZumbi(){
+    private void RandomZumbi()
+    {
         int selecionaTipoZumbi = Random.Range(1, 28);
         transform.GetChild(selecionaTipoZumbi).gameObject.SetActive(true);
+    }
+
+    public void TomarDano(int dano)
+    {
+        statusInimigo.Vida -= dano;
+        if (statusInimigo.Vida <= 0)
+        {
+            Morte();
+        }
+    }
+
+    public void Morte()
+    {
+        Destroy(gameObject);
+        ControlaAudio.instancia.PlayOneShot(SomDeMorte);
     }
 }
