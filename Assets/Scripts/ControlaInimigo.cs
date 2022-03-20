@@ -33,8 +33,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         }
         else if (distancia > 2.5)
         {
-            DirecaoInimigo(Jogador.transform.position);
-            animacao.Atacar(false);
+            DirecaoInimigo(Jogador.transform.position);            
         }
         else
         {
@@ -48,11 +47,15 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         Vector3 direcao = destino - transform.position;
         movimenta.Rotacionar(direcao);
         movimenta.Movimenta(direcao, statusInimigo.velocidade);
+        animacao.Atacar(false);
     }
 
     Vector3 DirecaoAleatoria()
     {
-        return Random.insideUnitSphere * 10;
+        Vector3 posicao = Random.insideUnitSphere * 10;
+        posicao += transform.position;
+        posicao.y = transform.position.y;
+        return posicao;
     }
 
 
