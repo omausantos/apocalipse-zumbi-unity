@@ -10,6 +10,9 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     private AnimacaoPersonagem animacao;
     private Status statusInimigo;
     public AudioClip SomDeMorte;
+    private float contadorVagar;
+    public float tempoEntrePosicoesAleatorias;
+    private Vector3 direcaoAleatoria;
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +24,18 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         statusInimigo = GetComponent<Status>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         float distancia = Vector3.Distance(transform.position, Jogador.transform.position);
 
         if (distancia > 15)
         {
-           DirecaoInimigo(DirecaoAleatoria());
+            Vagar();
         }
         else if (distancia > 2.5)
         {
-            DirecaoInimigo(Jogador.transform.position);            
+            DirecaoInimigo(Jogador.transform.position);
         }
         else
         {
@@ -45,6 +47,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     void DirecaoInimigo(Vector3 destino)
     {
         Vector3 direcao = destino - transform.position;
+        animacao.AnimarMovimento(direcao);
         movimenta.Rotacionar(direcao);
         movimenta.Movimenta(direcao, statusInimigo.velocidade);
         animacao.Atacar(false);
@@ -56,6 +59,21 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         posicao += transform.position;
         posicao.y = transform.position.y;
         return posicao;
+    }
+
+    void Vagar()
+    {
+        contadorVagar -= Time.deltaTime;
+        if (contadorVagar <= 0)
+        {
+            direcaoAleatoria = DirecaoAleatoria();
+            contadorVagar += tempoEntrePosicoesAleatorias;
+        }
+
+        if (Vector3.Distance(transform.position, direcaoAleatoria) > 0.05)
+        {
+            DirecaoInimigo(direcaoAleatoria);
+        }
     }
 
 
