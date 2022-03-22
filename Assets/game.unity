@@ -7487,6 +7487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SliderVidaJogador: {fileID: 2014997371}
   PainelGameOver: {fileID: 478572814}
+  TextoTempoDeSobrevivencia: {fileID: 1499152057}
 --- !u!1 &1388577219
 GameObject:
   m_ObjectHideFlags: 0
@@ -8168,7 +8169,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sobre sobreviveu por 3m e 30 s
+  m_Text: "Voc\xEA sobreviveu por XXm e XXs"
 --- !u!222 &1499152058
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class ControlaSlider : MonoBehaviour
     private ControlaJogador scriptControlaJogador;
     public Slider SliderVidaJogador;
     public GameObject PainelGameOver;
+    public Text TextoTempoDeSobrevivencia;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,9 @@ public class ControlaSlider : MonoBehaviour
     {
         PainelGameOver.SetActive(true);
         Time.timeScale = 0;
+        int minutos = (int)(Time.timeSinceLevelLoad / 60);
+        int segundos = (int)(Time.timeSinceLevelLoad % 60);
+        TextoTempoDeSobrevivencia.text = "Você sobreviveu por " + minutos + "min e " + segundos + "s";
     }
 
     public void Reiniciar()
