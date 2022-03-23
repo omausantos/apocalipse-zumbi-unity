@@ -10,6 +10,8 @@ public class ControlaSlider : MonoBehaviour
     public Slider SliderVidaJogador;
     public GameObject PainelGameOver;
     public Text TextoTempoDeSobrevivencia;
+    public Text TextoSeuMelhorTempo;
+    private float melhorTempo;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class ControlaSlider : MonoBehaviour
         scriptControlaJogador = GameObject.FindWithTag("Jogador").GetComponent<ControlaJogador>();
         SliderVidaJogador.maxValue = scriptControlaJogador.StatusJogador.Vida;
         AtualizarSliderVidaJogador();
+        melhorTempo = PlayerPrefs.GetFloat("MelhorTempo");
     }
 
     public void AtualizarSliderVidaJogador()
@@ -29,9 +32,20 @@ public class ControlaSlider : MonoBehaviour
     {
         PainelGameOver.SetActive(true);
         Time.timeScale = 0;
-        int minutos = (int)(Time.timeSinceLevelLoad / 60);
-        int segundos = (int)(Time.timeSinceLevelLoad % 60);
+        float tempoAtual = Time.timeSinceLevelLoad;
+        int minutos = (int)(tempoAtual / 60);
+        int segundos = (int)(tempoAtual % 60);
         TextoTempoDeSobrevivencia.text = "Você sobreviveu por " + minutos + "min e " + segundos + "s";
+        ModalTextoMelhorTexto(tempoAtual);
+    }
+
+    private void ModalTextoMelhorTexto(float tempoAtual)
+    {
+        melhorTempo = tempoAtual > melhorTempo ? tempoAtual : melhorTempo;
+        PlayerPrefs.SetFloat("MelhorTempo", melhorTempo);
+        int minutos = (int)(melhorTempo / 60);
+        int segundos = (int)(melhorTempo % 60);
+        TextoSeuMelhorTempo.text = "Você sobreviveu por " + minutos + "min e " + segundos + "s";
     }
 
     public void Reiniciar()
