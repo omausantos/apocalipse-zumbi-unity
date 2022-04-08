@@ -10,6 +10,9 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     private AnimacaoPersonagem animacao;
     private Status statusInimigo;
     public AudioClip SomDeMorte;
+    private float contadorVagar;
+    public float tempoEntrePosicoesAleatorias;
+    private Vector3 direcaoAleatoria;
 
     // Start is called before the first frame update
     void Start()
@@ -21,27 +24,58 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         statusInimigo = GetComponent<Status>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         float distancia = Vector3.Distance(transform.position, Jogador.transform.position);
 
-        Vector3 direcao = Jogador.transform.position - transform.position;
-
-        movimenta.Rotacionar(direcao);
-
-        if (distancia > 2.5)
+        if (distancia > 15)
         {
-            movimenta.Movimenta(direcao, statusInimigo.velocidade);
-            animacao.Atacar(false);
+            Vagar();
+        }
+        else if (distancia > 2.5)
+        {
+            DirecaoInimigo(Jogador.transform.position, false);
         }
         else
         {
-            animacao.Atacar(true);
+            DirecaoInimigo(Jogador.transform.position, true);
         }
 
     }
+
+    void DirecaoInimigo(Vector3 destino, bool atacar)
+    {
+        Vector3 direcao = destino - transform.position;
+        animacao.AnimarMovimento(direcao);
+        movimenta.Rotacionar(direcao);
+        movimenta.Movimenta(direcao, statusInimigo.velocidade);
+        animacao.Atacar(atacar);
+    }
+
+    Vector3 DirecaoAleatoria()
+    {
+        Vector3 posicao = Random.insideUnitSphere * 10;
+        posicao += transform.position;
+        posicao.y = transform.position.y;
+        return posicao;
+    }
+
+    void Vagar()
+    {
+        contadorVagar -= Time.deltaTime;
+        if (contadorVagar <= 0)
+        {
+            direcaoAleatoria = DirecaoAleatoria();
+            contadorVagar += tempoEntrePosicoesAleatorias;
+        }
+
+        if (Vector3.Distance(transform.position, direcaoAleatoria) > 0.05)
+        {
+            DirecaoInimigo(direcaoAleatoria, false);
+        }
+    }
+
 
     void AtacaJogador()
     {
