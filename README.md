@@ -3,7 +3,7 @@
 > <br>Seguindo a estrutura de estudos da Alura da Formação [Jogos com Unity](https://cursos.alura.com.br/formacao-jogos-unity).
 > <br>Com algumas alterações, para deixar o jogo mais "minha cara" 😎 
 
-[![Jogo Web](https://uploaddeimagens.com.br/images/003/733/986/original/Captura_de_Tela_2022-02-17_a%CC%80s_23.45.33.png)](https://omausantos.itch.io/apocalipse-zumbi)
+[![Jogo Web](https://uploaddeimagens.com.br/images/003/817/982/original/Captura_de_Tela_2022-04-07_a%CC%80s_23.23.58.png)](https://omausantos.itch.io/apocalipse-zumbi)
 <br />Última versão em [Itch.io @omausantos](https://omausantos.itch.io/apocalipse-zumbi)
 
 ```bash
