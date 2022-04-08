@@ -35,7 +35,7 @@ public class ControlaSlider : MonoBehaviour
         float tempoAtual = Time.timeSinceLevelLoad;
         int minutos = (int)(tempoAtual / 60);
         int segundos = (int)(tempoAtual % 60);
-        TextoTempoDeSobrevivencia.text = "Você sobreviveu por " + minutos + "min e " + segundos + "s";
+        TextoTempoDeSobrevivencia.text = "Voce sobreviveu por " + minutos + "min e " + segundos + "s";
         ModalTextoMelhorTexto(tempoAtual);
     }
 
@@ -45,7 +45,7 @@ public class ControlaSlider : MonoBehaviour
         PlayerPrefs.SetFloat("MelhorTempo", melhorTempo);
         int minutos = (int)(melhorTempo / 60);
         int segundos = (int)(melhorTempo % 60);
-        TextoSeuMelhorTempo.text = "Você sobreviveu por " + minutos + "min e " + segundos + "s";
+        TextoSeuMelhorTempo.text = "Voce sobreviveu por " + minutos + "min e " + segundos + "s";
     }
 
     public void Reiniciar()
