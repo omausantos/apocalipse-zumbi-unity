@@ -11,6 +11,6 @@ Utilizar a versão Unity 2021.2.19f1
 ```
 
 - [x] **Unity parte 1:** Criação de um jogo de sobrevivência à zumbis para Web
-- [ ] **Unity parte 2:** Iluminação, interface e boas práticas
+- [x] **Unity parte 2:** Iluminação, interface e boas práticas
 - [ ] **Unity parte 3:** Criando um chefão e refinando o jogo
 - [ ] **Unity parte 4:** Chefão, partículas e menu
