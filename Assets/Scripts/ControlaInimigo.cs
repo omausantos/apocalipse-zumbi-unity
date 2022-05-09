@@ -13,6 +13,8 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     private float contadorVagar;
     public float tempoEntrePosicoesAleatorias;
     private Vector3 direcaoAleatoria;
+    private float porcentagemGerarKitMedico = 0.3f;
+    public GameObject kitMedicoPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -102,5 +104,12 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     {
         Destroy(gameObject);
         ControlaAudio.instancia.PlayOneShot(SomDeMorte);
+        VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
+    }
+
+    void VerificarGeracaoKitMedico(float porcentagemGeracao)
+    {
+        if(Random.value <= porcentagemGeracao)
+            Instantiate(kitMedicoPrefab, transform.position, Quaternion.identity);
     }
 }
