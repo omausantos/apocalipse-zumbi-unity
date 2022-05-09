@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlaJogador : MonoBehaviour, IMatavel
+public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
 {
     private Vector3 direcao;
     public LayerMask mascaraChao;
@@ -55,5 +55,10 @@ public class ControlaJogador : MonoBehaviour, IMatavel
     public void Morte()
     {        
         ScriptControlaJogador.GameOver();
+    }
+
+    public void CurarVida(int quantidadeDeVida)
+    {
+        StatusJogador.Vida += quantidadeDeVida;
     }
 }
