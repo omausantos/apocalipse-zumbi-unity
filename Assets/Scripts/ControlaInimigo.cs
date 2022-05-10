@@ -15,6 +15,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     private Vector3 direcaoAleatoria;
     private float porcentagemGerarKitMedico = 0.3f;
     public GameObject kitMedicoPrefab;
+    private ControlaSlider controlaSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         movimenta = GetComponent<MovimentaPersonagem>();
         animacao = GetComponent<AnimacaoPersonagem>();
         statusInimigo = GetComponent<Status>();
+        controlaSlider = GameObject.FindObjectOfType(typeof(ControlaSlider)) as ControlaSlider;
     }
 
     void FixedUpdate()
@@ -105,6 +107,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         Destroy(gameObject);
         ControlaAudio.instancia.PlayOneShot(SomDeMorte);
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
+        controlaSlider.AtualizarQuantidadeDeZumbisMortos();
     }
 
     void VerificarGeracaoKitMedico(float porcentagemGeracao)

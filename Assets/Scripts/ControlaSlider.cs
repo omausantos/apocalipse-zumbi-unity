@@ -12,6 +12,7 @@ public class ControlaSlider : MonoBehaviour
     public Text TextoTempoDeSobrevivencia;
     public Text TextoSeuMelhorTempo;
     private float melhorTempo;
+    private int quantidadeZumbisMortos;
 
     // Start is called before the first frame update
     void Start()
@@ -52,5 +53,11 @@ public class ControlaSlider : MonoBehaviour
     {
         SceneManager.LoadScene("game");
         PainelGameOver.SetActive(false);
+    }
+
+    public void AtualizarQuantidadeDeZumbisMortos()
+    {
+        quantidadeZumbisMortos++;
+        Debug.Log(quantidadeZumbisMortos);
     }
 }
