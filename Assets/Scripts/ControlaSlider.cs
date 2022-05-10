@@ -13,6 +13,7 @@ public class ControlaSlider : MonoBehaviour
     public Text TextoSeuMelhorTempo;
     private float melhorTempo;
     private int quantidadeZumbisMortos;
+    public Text TextoQuantidadeDeZumbisMortos;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,6 @@ public class ControlaSlider : MonoBehaviour
     public void AtualizarQuantidadeDeZumbisMortos()
     {
         quantidadeZumbisMortos++;
-        Debug.Log(quantidadeZumbisMortos);
+        TextoQuantidadeDeZumbisMortos.text = string.Format("x {0}", quantidadeZumbisMortos);
     }
 }

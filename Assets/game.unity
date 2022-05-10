@@ -4621,7 +4621,7 @@ GameObject:
   - component: {fileID: 806524711}
   - component: {fileID: 806524710}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: QuantidadeDeZumbisMortos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4681,7 +4681,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x 00
+  m_Text: x 0
 --- !u!222 &806524711
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7668,6 +7668,7 @@ MonoBehaviour:
   PainelGameOver: {fileID: 478572814}
   TextoTempoDeSobrevivencia: {fileID: 1499152057}
   TextoSeuMelhorTempo: {fileID: 236156801}
+  TextoQuantidadeDeZumbisMortos: {fileID: 806524710}
 --- !u!1 &1388577219
 GameObject:
   m_ObjectHideFlags: 0
